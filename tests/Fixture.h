@@ -25,6 +25,8 @@
 #include <optional>
 #include <vector>
 
+LUAU_FASTFLAG(LuauBetterMetatableStringification);
+
 LUAU_FASTFLAG(DebugLuauFreezeArena)
 LUAU_FASTFLAG(DebugLuauForceAllNewSolverTests)
 LUAU_FASTFLAG(DebugLuauForceAllOldSolverTests)
@@ -176,6 +178,7 @@ struct Fixture
 
     // lots of tests might use declare class in type definitions - disable this and force all tests to adopt the new syntax
     ScopedFastFlag sff_LuauDisallowExternClassInTypeDefinitions{FFlag::LuauDisallowExternClassInTypeDefinitions, true};
+    ScopedFastFlag sff_LuauBetterMetatableStringification{FFlag::LuauBetterMetatableStringification, true};
 
     TestFileResolver fileResolver;
     TestConfigResolver configResolver;
